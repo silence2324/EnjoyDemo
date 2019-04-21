@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Love Yourself,Enjoy Life</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+	 <div class="pull-right">
+     <p class="text-riget">测试向右对齐</p>
+    </div>
+    <video controls autoplay name="media">
+    <source src="https://www.z01.com/10year.mp4" type="video/mp4">
+    </video>
+	</div>
+   	<form enctype="multipart/form-data" action="uploadSuccess.do" >
+     <div class="container">
+        <label>图片上传</label>
+        <div class="file-loading">
+            <input id="file-fr" name="file" type="file" multiple>
+        </div>
+        <!-- <hr style="border: 2px dotted">
+        <label>Spanish Input</label>
+            <div class="file-loading">
+                <input id="file-es" name="file-es[]" type="file" multiple>
+            </div> -->
+           <div>
+           <input type="text" id="userImage" name="userImage" value=""/>
+               <input type="submit" class="btn btn-success" value="提交"></input>
+           </div>
+           </div>
+    </form>
+
+</body>
+</html>
