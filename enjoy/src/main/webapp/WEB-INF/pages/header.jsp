@@ -55,7 +55,7 @@
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">加入我们 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a data-toggle="modal" data-target="#login" href="#">登陆</a></li>
+									<li><a data-toggle="modal" data-target="#login" href="">登陆</a></li>
 									<li><a data-toggle="modal" data-target="#register" href="">注册</a></li>
 								</ul></li>
 						</ul>
@@ -111,7 +111,7 @@
 						<h1 class="text-center">注册</h1>
 					</div>
 					<div class="modal-body">
-						<form id="re" class="form-group" action="">
+						<form id="regeist" class="form-group" action="">
 							<div class="form-group">
 								<label for="">用户名</label> <input name="username" class="form-control"
 									type="text" placeholder="6-15位字母或数字">
@@ -142,7 +142,7 @@
 	</header>
 </body>
 <script type="text/javascript">
-$('#re').bootstrapValidator({
+$('#regeist').bootstrapValidator({
     /*根据验证结果显示的各种图标*/
     feedbackIcons: {
         valid: 'glyphicon glyphicon-ok',
