@@ -72,7 +72,7 @@
 						<a class="btn btn-primary btn-large" href="#">Learn more</a>
 					</p>
 				</div>
-				<img alt="140x140" src="v3/default3.jpg" />
+				<!-- <img alt="140x140" src="v3/default3.jpg" /> -->
 			</div>
 		</div>
 		<div class="row clearfix">
@@ -112,6 +112,5 @@
 	<div class="container-fluid">
 		<%@ include file="footer.jsp" %>	
 	</div>
-	
 </body>
 </html>

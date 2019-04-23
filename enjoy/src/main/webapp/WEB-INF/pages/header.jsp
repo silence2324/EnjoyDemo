@@ -12,6 +12,8 @@
 <script src="builder/js/jquery-3.2.1.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="builder/js/bootstrap.min.js"></script>
+<link href="builder/css/bootstrapValidator.min.css" rel="stylesheet">
+<script src="builder/js/bootstrapValidator.js"></script>
 <title></title>
 </head>
 <body>
@@ -109,21 +111,21 @@
 						<h1 class="text-center">注册</h1>
 					</div>
 					<div class="modal-body">
-						<form class="form-group" action="">
+						<form id="re" class="form-group" action="">
 							<div class="form-group">
-								<label for="">用户名</label> <input class="form-control"
+								<label for="">用户名</label> <input name="username" class="form-control"
 									type="text" placeholder="6-15位字母或数字">
 							</div>
 							<div class="form-group">
-								<label for="">密码</label> <input class="form-control"
+								<label for="">密码</label> <input name="password" class="form-control"
 									type="password" placeholder="至少6位字母或数字">
 							</div>
 							<div class="form-group">
-								<label for="">再次输入密码</label> <input class="form-control"
+								<label for="">再次输入密码</label> <input name="agenPassword" class="form-control"
 									type="password" placeholder="至少6位字母或数字">
 							</div>
 							<div class="form-group">
-								<label for="">邮箱</label> <input class="form-control"
+								<label for="">邮箱</label> <input name="mail" class="form-control"
 									type="email" placeholder="例如:123@123.com">
 							</div>
 							<div class="text-right">
@@ -139,4 +141,82 @@
 		</div>
 	</header>
 </body>
+<script type="text/javascript">
+$('#re').bootstrapValidator({
+    /*根据验证结果显示的各种图标*/
+    feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    /*去校验表单元素  用户名  密码*/
+    /*校验状态：未校验 NOT_VALIDATED 正在校验 VALIDATING  校验成功 VALID 校验失败 INVALID */
+    /*校验规则：是需要去配置*/
+    /* fields 字段 --->  表单内的元素*/
+    fields:{
+        /*指定需要校验的元素  通过name数据去指定*/
+        username:{
+            /*配置校验规则  规则不止一个*/
+            validators:{
+                /*配置具体的规则*/
+                notEmpty:{
+                    /*校验不成功的提示信息*/
+                    message:'请您输入用户名'
+                },
+                /*自定义规则*/
+                callback:{
+                    message:'用户名错误'
+                }
+            }
+        },
+        password:{
+            validators:{
+                notEmpty:{
+                    message:'请您输入密码'
+                },
+                stringLength:{
+                    min:6,
+                    max:18,
+                    message:'密码长度必须在6到30之间'
+                },
+                /*自定义规则*/
+                callback:{
+                    message:'密码错误'
+                }
+            }
+        
+        },
+        
+        agenPassword: {
+            validators: {
+                notEmpty: {
+                    message: '请确认密码'
+                },
+                stringLength: {
+                    min: 6,
+                    max: 30,
+                    message: '密码长度必须在6到30之间'
+                },
+                identical: {//相同
+                    field: 'password',
+                    message: '两次密码不一致'
+                }
+            }
+        },
+        mail: {
+            validators: {
+                notEmpty: {
+                    message: '邮箱不能为空'
+                },
+                emailAddress: {
+                    message: '请输入正确的邮箱地址 如：47125@qq.com'
+                }
+            }
+        }
+    }
+    /*当校验失败  默认阻止了提交*/
+    /*当校验成功  默认就提交了*/
+    /*阻止默认的提交方式  改用ajax提交方式*/
+})
+</script>
 </html>
