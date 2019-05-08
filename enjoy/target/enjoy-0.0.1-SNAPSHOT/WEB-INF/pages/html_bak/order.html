@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>享受·生活</title>
+<style>
+.jumbotron {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+/* .navbar-brand {
+	font-size: x-large;
+	font-weight: bold;
+	color: #EEEEEE;
+} */
+
+.nav navbar-nav {
+	font-weight: bold;
+}
+
+.text-right {
+	font-weight: bold;
+}
+</style>
+</head>
+<link rel="stylesheet" href="builder/css/bootstrap.min.css"
+	type="text/css">
+<body style="padding-top: 5.5%;">
+	<!--页眉-->
+	<header class="container-fluid">
+		<!--导航栏-->
+		<div class="row clearfix">
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<!-- 汉堡按钮 -->
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<!-- 导航栏图标 -->
+						<a class="navbar-brand" href="index.html">享受·生活</a>
+					</div>
+					<!-- 左侧按钮选项 -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="sports.html">运动健康</a></li>
+							<li><a href="sports.html#store1">购物商城</a></li>
+							<li><a href="bbs.html">社区论坛</a></li>
+						</ul>
+						<form class="navbar-form navbar-left">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="搜你所想~">
+							</div>
+							<button type="submit" class="btn btn-default">GO</button>
+						</form>
+						<!-- 搜索框 -->
+						<!-- 右侧按钮 -->
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">加入我们 <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a data-toggle="modal" data-target="#login" href="#">登陆</a></li>
+									<li><a data-toggle="modal" data-target="#register" href="">注册</a></li>
+								</ul></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+		</div>
+		<!--登录-->
+		<div id="login" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-title">
+						<h1 class="text-center">登录</h1>
+					</div>
+					<div class="modal-body">
+						<form class="form-group" action="">
+							<div class="form-group">
+								<label for="">用户名</label> <input class="form-control"
+									type="text" placeholder="">
+							</div>
+							<div class="form-group">
+								<label for="">密码</label> <input class="form-control"
+									type="password" placeholder="">
+							</div>
+							<div class="text-right">
+								<button class="btn btn-primary" type="submit">登录</button>
+								<button class="btn btn-danger" data-dismiss="modal">取消</button>
+							</div>
+							<a href="" data-toggle="modal" data-dismiss="modal"
+								data-target="#register">还没有账号？点我注册</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 注册 -->
+		<div id="register" class="modal fade" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<button class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+					</div>
+					<div class="modal-title">
+						<h1 class="text-center">注册</h1>
+					</div>
+					<div class="modal-body">
+						<form class="form-group" action="">
+							<div class="form-group">
+								<label for="">用户名</label> <input class="form-control"
+									type="text" placeholder="6-15位字母或数字">
+							</div>
+							<div class="form-group">
+								<label for="">密码</label> <input class="form-control"
+									type="password" placeholder="至少6位字母或数字">
+							</div>
+							<div class="form-group">
+								<label for="">再次输入密码</label> <input class="form-control"
+									type="password" placeholder="至少6位字母或数字">
+							</div>
+							<div class="form-group">
+								<label for="">邮箱</label> <input class="form-control"
+									type="email" placeholder="例如:123@123.com">
+							</div>
+							<div class="text-right">
+								<button class="btn btn-primary" type="submit">提交</button>
+								<button class="btn btn-danger" data-dismiss="modal">取消</button>
+							</div>
+							<a href="" data-toggle="modal" data-dismiss="modal"
+								data-target="#login">已有账号？点我登录</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--主体部分-->
+	<div class="main">
+		<div style="margin: 0px auto; width: 1000px">
+			<!--左边导航-->
+			<div style="border: 1px solid grey; width: 25%; float: left">
+				<div style="width: 200px; margin: 0px auto">
+					<dl>
+						<dt class="list_title">
+							<span class="glyphicon glyphicon-lock" style="margin-right: 20px"></span><span>查看订单</span>
+						</dt>
+						<dd>
+							<span class="glyphicon glyphicon-menu-right"></span><a href="#"
+								class="order_type">现有订单</a>
+						</dd>
+						<dd>
+							<span class="glyphicon glyphicon-menu-right"></span><a href="#"
+								class="order_type">过去订单</a>
+						</dd>
+						<dd>
+							<span class="glyphicon glyphicon-menu-right"></span><a href="#"
+								class="order_type">退换货</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="list_title">
+							<span class="glyphicon glyphicon-user" style="margin-right: 20px"></span><span>账户</span>
+						</dt>
+						<dd>
+							<span class="glyphicon glyphicon-menu-right"></span><a href="#">账户设置</a>
+						</dd>
+						<dd>
+							<span class="glyphicon glyphicon-menu-right"></span><a href="#">地址簿</a>
+						</dd>
+					</dl>
+					<dl>
+						<dt class="list_title">
+							<span class="glyphicon glyphicon-info-sign"
+								style="margin-right: 20px"></span><span>服务</span>
+						</dt>
+					</dl>
+					<div class="help">
+						<div class="help_title">需要帮助吗？</div>
+						<ul class="help_list">
+							<li><a href="#">如何确保订单安全？</a></li>
+							<li><a href="#">我可以使用什么付款方式？</a></li>
+							<li><a href="#">如何进行退换货？</a></li>
+						</ul>
+						<a href="www.baidu.com"><div class="help_more">
+								<span class="glyphicon glyphicon-menu-right"></span>更多帮助
+							</div></a>
+					</div>
+				</div>
+			</div>
+			<!--右边订单-->
+			<div style="width: 72%; float: right;">
+				<!--订单头部类型，JS-->
+				<div class="order_title"></div>
+				<!--按钮-->
+				<button class="btn-group"
+					style="width: 200px; height: 50px; background-color: #333333;">
+					<div style="padding: 0px 38px">
+						<div
+							style="display: table-cell; vertical-align: middle; text-align: center;">
+							<a href="sports.html#store1"><span style="color: white; font-size: 18px;">继续购物</span></a>
+						</div>
+						<div
+							style="display: table-cell; vertical-align: middle; text-align: center;">
+							<span class="glyphicon glyphicon-menu-right"
+								style="color: white; font-size: 20px;"></span>
+						</div>
+					</div>
+				</button>
+			</div>
+		</div>
+	</div>
+	<!-- 页脚 -->
+	<div class="container-fluid">
+		<iframe scrolling="no" id="main" name="main" frameborder="0"
+			src="footer.html"
+			style="min-height: 350px; width: 100%; height: 100%;"></iframe>
+	</div>
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+	/*订单类型，默认为  现有订单*/
+	$(function() {
+		var htName = "现有订单";
+		$(".order_title").html(htName);
+		$(".order_type").click(function() {
+			htName = this.innerHTML;
+			$(".order_title").html(htName);
+		})
+	})
+</script>
+<!--css样式，部分写在行内-->
+<style>
+body {
+	margin: 0px auto;
+}
+
+.head {
+	margin-bottom: 40px;
+}
+
+.head_top {
+	height: 80px;
+	background-color: #ffffff;
+}
+
+.head_list {
+	height: 50px;
+	background-color: #ffffff;
+}
+
+.list_name {
+	list-style-type: none;
+	float: left;
+	font-size: 18px;
+	margin-left: 25px;
+	color: white;
+}
+
+.list_title {
+	height: 70px;
+	width: 100%;
+	margin-bottom: 20px;
+	line-height: 70px;
+	border-bottom: 1px solid #333333;
+	font-size: 24px;
+	position: relative;
+	text-align: left;
+}
+
+.main {
+	width: 100%;
+}
+
+dl {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+dl dt {
+	font-size: 24px;
+	height: 70px;
+	width: 100%;
+	text-align: left;
+	border-bottom: 1px solid #b7b7b7;
+	position: relative;
+	line-height: 70px;
+	margin-bottom: 20px;
+}
+
+dl dd {
+	line-height: 25px;
+	font-size: 14px;
+}
+
+dl dd a {
+	color: #333333;
+	outline: medium none;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+dl dd a:hover {
+	color: rgb(153, 153, 153);
+	text-decoration: none;
+}
+
+.glyphicon.glyphicon-menu-right {
+	margin-right: 16px;
+}
+
+.help {
+	border-top: 1px solid #b7b7b7;
+	font-size: 14px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.help_title {
+	margin-bottom: 15px;
+	line-height: 20px;
+	font-size: 18px;
+}
+
+.help_list {
+	margin: 0;
+	padding: 0;
+}
+
+.help_list li {
+	line-height: 20px;
+	font-size: 8px;
+	text-indent: 5px;
+}
+
+.help_list li a {
+	text-decoration: underline;
+	font-size: 14px;
+	color: #333333;
+	outline: medium none;
+	overflow: hidden;
+}
+
+.help_more {
+	margin-top: 20px;
+	line-height: 25px;
+	font-size: 14px;
+}
+
+.order_title {
+	height: 71px;
+	line-height: 70px;
+	font-size: 30px;
+	text-align: left;
+	width: 100%;
+	font-weight: bold;
+	font-family: tradegothic, fzlthjw, 微软雅黑, "Microsoft YaHei", 黑体, SimHei;
+	position: relative;
+	border-bottom: 1px solid #b7b7b7;
+}
+
+.cue {
+	font-size: 12px;
+	line-height: 20px;
+	margin: 20px 0px;
+}
+</style>
+</html>

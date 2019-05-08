@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Bootstrap 实例 - 面包屑导航</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+	<style>
+		.table tr td {
+		border:1px solid white;
+		}
+	</style>
+<body>
+<ul class="breadcrumb">
+	<li><a href="#">共享农场论坛</a></li>
+	<li><a href="#">水果</a></li>
+	<li class="active">帖子详情页面</li>
+</ul>
+	  <div class="container">
+    <div class="row text-center h3">极端天气 鸡苗行情</div>
+		   <div class="row h5">
+		  <span>俺是大壮</span>
+				<span>回帖数23</span>
+		  </div>
+	   <div class="row h5">2018-03-23 07:53:00</div>
+		     <div class="row h5">
+		   &nbsp; &nbsp; &nbsp; &nbsp;蔬菜是大家餐桌上必不可少的食物，人们常说的一句话就是多吃蔬菜身体好，可想想吃了一辈子蔬菜
+ 
+还从来不知道它们开花的样子！今天中国农产品网就带您看看它们开花的样子
+ 
+看完您就晓得
+ 
+原来这些蔬菜颜值这么高，还都是偶像派！ 
+		  </div>
+		     <div class="row">图片</div>
+   </div>
+<!---评论区------>
+ 
+<table class="table" >
+  <caption>回帖区</caption>
+    <tr>
+      <td rowspan="3">头像</td>
+      <td>用户名嘟嘟</td>
+    </tr>
+    <tr>
+      <td>写的很随意呢？你觉得呢？</td>
+    </tr>
+	 <tr>
+      <td>2018-03-26 18:02:00</td>
+    </tr>
+	
+	<tr class="success">
+		<td colspan="2">用户名我是大鹏回复嘟嘟</td>
+	</tr>
+	<tr>
+      <td rowspan="3">头像</td>
+      <td>用户名我是大鹏</td>
+    </tr>
+    <tr>
+      <td>还行啊，别太苛刻</td>
+    </tr>
+	 <tr>
+      <td>2018-03-26 18:04:00</td>
+    </tr>
+</table>
+<!---写评论------>
+<form role="form">
+	<div class="form-group">
+		<label for="name">写评论</label>
+		<input type="text" class="form-control" placeholder="写下您的评论....">
+	</div>
+ </form>	
+</body>
+</html>

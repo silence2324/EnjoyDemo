@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 报表的映射文件 namespace值为对应接口的全路径 -->
 <mapper namespace="com.unmatched.dao.ChartsMapper">
+	<!-- 查询所有用户信息 -->
 	<select id="findAll" resultType="com.unmatched.pojo.Users">
 		<!-- SELECT username,case gender when'1' then '男' when '0' then '女' end,
 		age,height,weight,created_time AS createdTime FROM e_users -->
@@ -11,6 +12,25 @@
 					age,height,weight,
 					created_time AS createdTime
 		FROM e_users
+	</select>
+	<!-- 查询每月新增用户数 -->
+	<select id="countAdd" resultType="_integer">
+		SELECT COUNT(*) AS 人数 FROM e_users GROUP BY YEAR(e_users.created_time), MONTH(e_users.created_time)
+	</select>
+	<!-- 查询热销前五的商品数量 -->
+	<select id="hotGoods" resultType="_integer">
+		SELECT goods_num FROM e_order ORDER BY goods_num DESC LIMIT 0,5
+	</select>
+	<!-- 年龄段分布查询 -->
+	<select id="agePie" resultType="map">
+		SELECT age_temp,COUNT(*) AS total FROM (
+		SELECT age,CASE
+		WHEN age <![CDATA[ < ]]>20 THEN '<![CDATA[ < ]]>20'
+		WHEN age BETWEEN 21 AND 35 THEN '21-35'
+		WHEN age BETWEEN 36 AND 55 THEN '36-55'
+		WHEN age >55  THEN '>55'
+		END AS age_temp FROM e_users
+		)e_users GROUP BY age_temp;
 	</select>
 </mapper>
 

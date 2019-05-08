@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>Bootstrap 101 Template</title>
+
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="js/bootstrap.min.js"></script>
+<style>
+.search-btn {
+	float: left;
+	border: 1px solid black;
+	margin-top: 50px;
+	width: 90px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	background: black;
+	color: white;
+}
+
+.search-input {
+	float: left;
+	border: 2px solid black;
+	width: 400px;
+	height: 35px;
+	padding: 5px;
+	margin-top: 50px;
+}
+
+.phone {
+	margin-top: 20px;
+}
+
+.banner {
+	margin: 0 auto;
+	height: 600px;
+	width: 600px;
+}
+
+.video {
+	height: 400px;
+	width: 400px;
+}
+
+.search-title {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.first-title {
+	margin-top: 20px;
+}
+
+.small {
+	color: gray;
+	font-size: 18px;
+}
+
+.search-footer {
+	background: black;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	color: white;
+}
+
+.price {
+	font-weight: bold;
+	font-size: 15px;
+	margin-left: px;
+}
+</style>
+</head>
+<body>
+	<!--页眉部分-->
+	<header class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<img src="imgs/logo.jpeg" class="img-responsive">
+			</div>
+			<div class="col-md-5">
+				<input placeholder="请输入要搜索的内容" class="search-input"> <a
+					href="#" class="search-btn">搜索</a>
+			</div>
+			<div class="col-md-4">
+				<img src="imgs/phone.jpg" class="img-responsive phone">
+			</div>
+		</div>
+		<div class="row ">
+			<!--导航栏-->
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<nav class="navbar navbar-default navbar-inverse" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse"
+								data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span><span
+									class="icon-bar"></span><span class="icon-bar"></span><span
+									class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="#">BODYFITNESS</a>
+						</div>
+
+						<div class="collapse navbar-collapse"
+							id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li><a href="#health">健康.生活</a></li>
+								<li class="active"><a href="#life">运动.生活</a></li>
+								<li><a href="#store1">运动商城</a></li>
+
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="#health">获取健康值</a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown">个人空间<strong class="caret"></strong></a>
+									<ul class="dropdown-menu">
+										<li><a class="btn" data-toggle="modal"
+											data-target="#login">登录</a></li>
+										<li><a class="btn" data-toggle="modal" data-target="#reg">注册</a>
+										</li>
+										<li><a class="btn" data-toggle="modal"
+											data-target="#data">修改资料</a></li>
+										<li class="divider"></li>
+										<li><a href="#">登出</a></li>
+									</ul></li>
+							</ul>
+						</div>
+
+					</nav>
+				</div>
+			</div>
+		</div>
+
+	</header>
+	<!--页体部分-->
+	<div class="container">
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+				<img src="imgs/onwhey.jpg"
+                         alt="通用的占位符缩略图">
+				<div class="caption">
+					<h3>乳清蛋白</h3>
+					<p>ON欧普特蒙蛋白粉 WHEY运动增肌健身乳清蛋白质粉美国进口 5磅</p>
+					<p>
+						<a href="#" class="btn btn-primary " role="button"> 购买 </a> <a
+							href="#" class="btn btn-default" role="button"> 加入购物车 </a> <span
+							class="price">价格:538</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-9">
+			<div class="thumbnail">
+				<ol class="breadcrumb">
+					<li><a href="#">宝贝详情</a></li>
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-info">厂名：美国ON欧普特蒙营养公司</li>
+						<li class="list-group-item list-group-item-info">厂家联系方式：630-236-0097</li>
+						<li class="list-group-item list-group-item-info">保质期：730 天</li>
+						<li class="list-group-item list-group-item-info">计价单位: 桶</li>
+					</ul>
+					<div class="list-group">
+						<li class="list-group-item list-group-item-info">颜色分类: 5磅大桶2270g</li>
+						<li class="list-group-item list-group-item-info">系列: WHEY GOLD金标乳清蛋白质粉</li>
+						<li class="list-group-item list-group-item-info">生产企业: 美国ON欧普特蒙营养</li>
+						<li class="list-group-item list-group-item-info">食品添加剂：详见中文标签</li>
+					</div>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<!--页脚部分-->
+	<footer class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapseOne"> 关于我们 </a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<ul>
+									<li>加入我们</li>
+									<li>商家入驻</li>
+									<li>联系方式</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapseTwo"> 训练课程 </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse">
+							<div class="panel-body">
+								<ul>
+									<li>运动轨迹</li>
+									<li>社区精选</li>
+									<li>会员实体卡</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion"
+									href="#collapseThree"> 用户协议 </a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse">
+							<div class="panel-body">
+								<ul>
+									<li>隐私政策</li>
+									<li>社区规范</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<hr />
+		</div>
+		<div class="row">
+			<div class="col-md-12 search-footer">河西CDB中心CGB1902班无敌就是寂寞组制作
+				联系我们:wxrhp18904697722</div>
+		</div>
+	</footer>
+	</div>
+</body>
+</html>

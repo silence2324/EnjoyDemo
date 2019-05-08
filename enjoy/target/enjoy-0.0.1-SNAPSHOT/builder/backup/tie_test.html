@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Bootstrap 实例 - 水平表单</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">  
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="panel panel-success">
+    <div class="panel-heading">
+        <h3 class="panel-title">发布帖子</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form">
+			<!---隐藏的用户名-->
+			<div class="form-group">
+		<div class="col-xs-12">
+			<input type="text" class="form-control" id="username" 
+				   placeholder="用户名">
+		</div>
+	</div>
+	<!---隐藏的用户名-->
+	<div class="form-group">
+		<div class="col-xs-12">
+			<input type="text" class="form-control" id="titlename" 
+				   placeholder="请输入标题">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-12">
+			<textarea class="form-control" rows="3" placeholder="请输入内容" id="content"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-6">
+		<img src="/wp-content/uploads/2014/06/download.png" class="img-rounded" id="avatar"/>
+		</div><br/>
+		<div class="col-xs-6" >
+			<button type="button" class="btn btn-success" onclick="showAction();" style="margin-top:100px">上传图片</button>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-xs-10">
+			<button type="submit" class="btn btn-primary">发布帖子</button>
+		</div>
+	</div>
+</form>
+    </div>
+</div>
+</body>
+</html>
