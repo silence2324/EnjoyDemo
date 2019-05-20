@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 回帖相关的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="com.unmatched.dao.ReplyDao">
+	<!--通过主贴tid查询主贴信息-->
+	<select id="findTopicObject" resultType="com.unmatched.vo.Topic">
+		SELECT t.tid,t.tuid,u.username AS author,t.ttopic,t.tcontents,t.ttime,t.timage
+        FROM e_users u,e_bbstopic t
+        WHERE u.uid = t.tuid AND t.tid = #{tid}
+	</select>
+
+	<!--通过主贴tid查询关联的回帖信息-->
+	<select id="findReplyObjects" resultType="com.unmatched.vo.Reply">
+			SELECT sid,suid,snum,stid,scontents,stime,suname
+			FROM e_bbsreply
+			WHERE stid = #{tid}
+			ORDER BY stime
+		</select>
+
+	<!--新增回复帖子-->
+	<insert id="postReply">
+		INSERT INTO e_bbsreply
+		VALUES (null,#{suid},#{snum},#{stid},#{scontents},now(),#{suname})
+	</insert>
+</mapper>
+

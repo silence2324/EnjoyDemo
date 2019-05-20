@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 报表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="com.unmatched.dao.ImgGoodsDao">
+    <select id="findImgs" resultType="com.unmatched.pojo.Imgs">
+        select imge1,imge2,imge3,imge4 from e_img where id=#{id}
+    </select>
+</mapper>
+

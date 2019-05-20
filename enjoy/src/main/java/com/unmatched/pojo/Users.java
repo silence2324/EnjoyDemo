@@ -1,8 +1,14 @@
 package com.unmatched.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Users {
+/**
+ * 用户信息
+ * @author SiLenCE.YN
+ */
+public class Users implements Serializable{
+	private static final long serialVersionUID = 6495029147622459865L;
 	private Integer uid;
 	private String username;
 	private String password;

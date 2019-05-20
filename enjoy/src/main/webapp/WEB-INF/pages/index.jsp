@@ -27,7 +27,7 @@
 </style>
 <body>
 	<!-- 页眉部分 -->
-	<%@ include file="header.jsp" %>	
+	<%@ include file="header.jsp"%>
 	<!-- <div>
 		<img src="imgs/run1.jpg" class="img-responsive" alt="Responsive image">
 	</div> -->
@@ -59,58 +59,56 @@
 		</a>
 	</div>
 	<!-- 宣传 -->
+
 	<div class="container">
-		<div class="row clearfix">
-			<div class="col-md-12 column">
-				<div class="jumbotron well">
-					<h1>Hello, world!</h1>
-					<p>This is a template for a simple marketing or informational
-						website. It includes a large callout called the hero unit and
-						three supporting pieces of content. Use it as a starting point to
-						create something more unique.</p>
-					<p>
-						<a class="btn btn-primary btn-large" href="#">Learn more</a>
-					</p>
-				</div>
-				<!-- <img alt="140x140" src="v3/default3.jpg" /> -->
+		<div class="row">
+			<div class="page-header">
+				<h1>
+					运动商城 <small>健身器材</small>
+				</h1>
 			</div>
 		</div>
-		<div class="row clearfix">
-			<div class="col-md-4 column">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn" href="#">View details »</a>
-				</p>
+		<div class="row">
+			<div class="col-sm-6">
+				<a href="#" class="thumbnail"> <img
+					src="builder/imgs/equipment-fitness-gym.jpg" alt="通用的占位符缩略图">
+				</a>
 			</div>
-			<div class="col-md-4 column">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn" href="#">View details »</a>
-				</p>
+			<div class="col-sm-6">
+				<a href="#" class="thumbnail"> <img
+					src="builder/imgs/backlit-clouds-friends-853168.jpg"
+					alt="通用的占位符缩略图">
+				</a>
 			</div>
-			<div class="col-md-4 column">
-				<h2>Heading</h2>
-				<p>Donec id elit non mi porta gravida at eget metus. Fusce
-					dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-					ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-					magna mollis euismod. Donec sed odio dui.</p>
-				<p>
-					<a class="btn" href="#">View details »</a>
-				</p>
+		</div>
+
+		<div class="row">
+			<div class="row">
+				<div class="page-header">
+					<h1>
+						交流论坛 <small>狐朋狗友</small>
+					</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<a href="#" class="thumbnail"> <img
+						src="builder/imgs/backlit-clouds-friends-853168.jpg" alt="通用的占位符缩略图">
+					</a>
+				</div>
+				<div class="col-sm-6">
+					<a href="#" class="thumbnail"> <img
+						src="builder/imgs/bonding-daylight-friends-1645634.jpg"
+						alt="通用的占位符缩略图">
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
+
 	<!-- 页脚 -->
 	<div class="container-fluid">
-		<%@ include file="footer.jsp" %>	
+		<%@ include file="footer.jsp"%>
 	</div>
 </body>
 </html>

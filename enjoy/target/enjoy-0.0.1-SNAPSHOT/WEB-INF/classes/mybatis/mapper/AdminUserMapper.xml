@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 后台报表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="com.unmatched.dao.AdminUserDao">
+<!-- 根据用户名查询，用户所有信息 -->
+<select id="findUserByUserName" resultType="com.unmatched.pojo.Users">
+    SELECT * FROM e_users
+    WHERE username = #{username}
+</select>
+<!-- 将用户存入e_users表中(备用) -->
+<insert id="userInsert">
+    INSERT INTO e_users (username, password, salt, email)
+    value (#{username}, #{password}, #{salt}, #{email})
+</insert>
+</mapper>

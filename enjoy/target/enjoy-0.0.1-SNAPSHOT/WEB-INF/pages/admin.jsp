@@ -151,7 +151,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">取消</button>
-					<a class="btn btn-primary" href="login.html">确定</a>
+					<a class="btn btn-primary" href="adminLogout">确定</a>
 				</div>
 			</div>
 		</div>

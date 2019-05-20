@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 订单和购物车的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="com.unmatched.dao.OrderDao">
+	<!-- 根据用户uid查询对应的订单信息 -->
+	<select id="findAll" resultType="com.unmatched.pojo.order">
+		select * from e_order
+		where
+		uid=#{uid} and state = 1
+	</select>
+
+	<!-- 根据订单id删除订单信息 -->
+	<delete id="deleteById">
+		delete from e_order
+		where oid in
+		<foreach collection="oids" open="(" close=")" separator=","
+			item="oid">
+			#{oid}
+		</foreach>
+	</delete>
+	<!-- 添加订单-->
+	<insert id="doAddOrder0">
+		insert into e_order (goods_id, goods_name, goods_image, goods_num, 
+										goods_message, uid, total_price, state, order_time, created_time,
+										modified_time, delivery_time)
+		values(#{goods_id}, #{goods_name}, #{goods_image},
+					#{goods_num}, #{goods_message}, #{uid}, #{total_price}, 
+					#{state}, now(), now(), now(), now())
+	</insert>
+	<!--查找购物车订单-->
+	<select id="findCartById" resultType="com.unmatched.pojo.order">
+		select * from e_order
+		where uid = #{uid} and state = 0
+	</select>
+	<!--改变数据库字断，o购物车，1订单-->
+	<update id="changeStateByIds">
+		update e_order
+		set state = 1
+		where oid in
+		<foreach collection="oids"  open="(" close=")" separator="," item="oid">
+			#{oid}
+		</foreach>
+	</update>
+</mapper>
+
+
+

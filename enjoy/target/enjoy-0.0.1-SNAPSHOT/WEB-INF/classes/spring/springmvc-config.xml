@@ -11,11 +11,19 @@
           				http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<!-- 1.配置前端控制器放行静态资源(html/css/js等，否则静态资源将无法访问) -->
 	<mvc:default-servlet-handler />
+	<!-- 上传文件 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"/>
+		<!-- 最大内存大小 -->
+		<property name="maxInMemorySize" value="10240"/>
+		<!-- 最大文件大小，-1为不限制大小 -->
+		<property name="maxUploadSize" value="-1"/>
+	</bean>
 	<!-- 2.配置注解驱动，用于识别注解（比如@Controller） -->
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven />
 	<!-- 3.配置需要扫描的包：spring自动去扫描 base-package 下的类， 
 		如果扫描到的类上有 @Controller、@Service、@Component等注解,将会自动将类注册为bean -->
-	<context:component-scan base-package="com.unmatched.controller"></context:component-scan>
+	<context:component-scan base-package="com.unmatched.controller,com.unmatched.web" />
 	<!-- 4.配置内部资源视图解析器 prefix:配置路径前缀 suffix:配置文件后缀 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -13,9 +13,160 @@
 <script src="builder/js/jquery-3.2.1.min.js"></script>
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="builder/js/bootstrap.min.js"></script>
+
+<script>
+	/*订单类型，默认为  我的订单*/
+	$(function() {
+		var htName = "我的订单";
+		$(".order_title").html(htName);
+		$(".order_type").click(function() {
+			htName = this.innerHTML;
+			$(".order_title").html(htName);
+		});
+		$("#checkAll").click(doChangeAllState);
+	})
+	
+	function doSmallState(){
+	    //1.获取tbody中所有checkbox对象状态相与的结果
+	      var flag=true;//定义初始标记
+	      $("#tbodyId input[type='checkbox']")
+	      .each(function(){
+	    	  flag=flag&&$(this).prop("checked");
+	      })
+	    //2.修改thead中checkbox对象状态	
+	      $("#checkAll").prop("checked",flag);
+	    }
+	
+	 function doChangeAllState(){
+	    	//1.获取thead中checkbox对象状态
+	    	var flag=$("#checkAll").prop("checked");
+	    	//2.修改tbody中checkbox对象状态
+	    	$("#tbodyId input[type='checkbox']")
+	    	.each(function(){
+	    		$(this).prop("checked",flag);
+	    	});
+	    }
+	 
+	//同步获取用户uid
+	$(function() {
+		//	$(".dropdown-toggle").data("uid", 1);
+		//	console.log("uuid", uid);
+		$.ajax({
+			type : "get",
+			url : "user/doAuthenLogin",
+			async : false,
+			success : function(result) {
+				console.log("result", result);
+				console.log("uid", result.data.uid);
+				doLoadPages(result.data.uid);
+				$(".dropdown-toggle").data("uid", result.data.uid);
+			}
+		});
+	});
+
+	//根据uid获取用户订单数据
+	function doLoadPages(uid) {
+		console.log(uid);
+		$.ajax({
+			type : "get",
+			url : "order/findAll",
+			async : true,
+			data : {
+				"uid" : uid
+			},
+			success : function(result) {
+				//				console.log("result", result);
+				if (result.state == 1) {
+					doLoadPage(result.data);
+				} else {
+					doLoadPage(result.data);
+					$("#messageId").text(result.message);
+				}
+			}
+		});
+	}
+
+	//根据订单返回值，加载用户订单信息
+	function doLoadPage(data) {
+		var tBody = $("#tbodyId");
+		tBody.empty();//清空内容
+		//2.迭代records记录(循环一次取一行)
+		for (var i = 0; i < data.length; i++) {
+			//1.创建tr对象
+			var tr = $("<tr></tr>");
+			//2.创建多个td对象
+			var tds = doCreateTds(data[i]);
+			//3.将td对象追加到tr中
+			tr.append(tds);
+			//4.将tr追加到tbody中
+			tBody.append(tr);
+		}
+		$(".cBox").click(doSmallState);
+		$("#deleteId").click(doDeleteOrder)
+	}
+	
+	function doDeleteOrder() {
+		var array = dogetCheckedIds();
+		console.log(array);
+		$.ajax({
+			type : "get",
+			url : "order/doDeleteCart",
+			async : false,
+			data : {
+				"oids" : array.toString()
+			},
+			success : function(result) {
+				if (result.state == 1) {
+					var uid = $(".dropdown-toggle").data("uid");
+					console.log("uid", uid);
+					alert(result.message);
+					doLoadPages(uid);
+				} else {
+					alert(result.message);
+				}
+			}
+		});
+	}
+	
+	
+	 function dogetCheckedIds(){
+		   //1.定义数组
+		   var array=[];
+		   //2.迭代所有tbody中checkbox并选中对象的value存储到数组
+		   $("#tbodyId input[type='checkbox']")
+		   .each(function(){//一旦发现元素执行函数
+			   //判定元素是否选中
+			   if($(this).prop("checked")){
+				   //并将选中对象 的value存储到数组
+				   array.push($(this).val())
+			   }
+		   })
+		   //3.返回数组
+		   return array;
+	   }
+
+	//创建一个订单信息td
+	function doCreateTds(data) {
+		console.log(data);
+		var tds = "<td><input type='checkbox' class='cBox' name='cItem' value="+data.oid+"></td><td><img src="+data.goods_image+" width='110' /></td>"
+				+ "<td>"
+				+ data.goods_name
+				+ "</td>"
+				+ "<td>"
+				+ data.goods_message
+				+ "</td>"
+				+ "<td>"
+				+ data.goods_num
+				+ "</td>"
+				+ "<td>1</td>"
+				+ "<td>"
+				+ data.total_price + "</td>";
+		return tds;
+	}
+</script>
 <body style="padding-top: 5.5%;">
 	<!--页眉-->
-	<%@ include file="header.jsp" %>	
+	<%@ include file="header.jsp"%>
 	<!--主体部分-->
 	<div class="main">
 		<div style="margin: 0px auto; width: 1000px">
@@ -24,16 +175,14 @@
 				<div style="width: 200px; margin: 0px auto">
 					<dl>
 						<dt class="list_title">
-							<span class="glyphicon glyphicon-lock" style="margin-right: 20px"></span><span>查看订单</span>
+							<span class="glyphicon glyphicon-zoom-in"
+								style="margin-right: 20px"></span><span>查看订单</span>
 						</dt>
 						<dd>
 							<span class="glyphicon glyphicon-menu-right"></span><a href="#"
-								class="order_type">现有订单</a>
+								class="order_type">我的订单</a>
 						</dd>
-						<dd>
-							<span class="glyphicon glyphicon-menu-right"></span><a href="#"
-								class="order_type">过去订单</a>
-						</dd>
+
 						<dd>
 							<span class="glyphicon glyphicon-menu-right"></span><a href="#"
 								class="order_type">退换货</a>
@@ -41,7 +190,8 @@
 					</dl>
 					<dl>
 						<dt class="list_title">
-							<span class="glyphicon glyphicon-user" style="margin-right: 20px"></span><span>账户</span>
+							<span class="glyphicon glyphicon-phone"
+								style="margin-right: 20px"></span><span>账户</span>
 						</dt>
 						<dd>
 							<span class="glyphicon glyphicon-menu-right"></span><a href="#">账户设置</a>
@@ -73,13 +223,47 @@
 			<div style="width: 72%; float: right;">
 				<!--订单头部类型，JS-->
 				<div class="order_title"></div>
+				<div class="box-body table-responsive no-padding">
+					<table class="table table-hover">
+							<thead>
+								<tr>
+									<th><input type="checkbox" id="checkAll">全选</th>
+									<th>图片</th>
+									<th>订单名称</th>
+									<th>详细信息</th>
+									<th>单价</th>
+									<th>数量</th>
+									<th>总价</th>
+								</tr>
+							</thead>
+							<tbody id="tbodyId">
+								<tr>
+									<td id="messageId" colspan="7">数据加载中...</td>
+								</tr>
+							</tbody>
+
+						</table>
+					<div class="btn-toolbar" role="toolbar" aria-label="...">
+
+						<div class="btn-group pull-right" role="group" aria-label="..." >
+							<button type="button" class="btn btn-danger" id="deleteId">删除</button>
+						</div>
+						<div class="btn-group pull-right" role="group" aria-label="...">
+							<button type="button" class="btn btn-default">首页</button>
+							<button type="button" class="btn btn-default">上一页</button>
+							<button type="button" class="btn btn-default">下一页</button>
+							<button type="button" class="btn btn-default">当前页码值</button>
+							<button type="button" class="btn btn-default">尾页</button>
+						</div>
+					</div>
+				</div>
 				<!--按钮-->
 				<button class="btn-group"
 					style="width: 200px; height: 50px; background-color: #333333;">
 					<div style="padding: 0px 38px">
 						<div
 							style="display: table-cell; vertical-align: middle; text-align: center;">
-							<a href="sports#store1"><span style="color: white; font-size: 18px;">继续购物</span></a>
+							<a href="sports"><span style="color: white; font-size: 18px;">继续购物</span></a>
 						</div>
 						<div
 							style="display: table-cell; vertical-align: middle; text-align: center;">
@@ -92,21 +276,11 @@
 		</div>
 	</div>
 	<!-- 页脚 -->
-	<div class="container-fluid" >
-		<%@ include file="footer.jsp" %>	
-	</div>
 </body>
-<script>
-	/*订单类型，默认为  现有订单*/
-	$(function() {
-		var htName = "现有订单";
-		$(".order_title").html(htName);
-		$(".order_type").click(function() {
-			htName = this.innerHTML;
-			$(".order_title").html(htName);
-		})
-	})
-</script>
+<div id="footerId">
+	<%@ include file="footer.jsp"%>
+</div>
+
 <!--css样式，部分写在行内-->
 <style>
 body {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 报表的映射文件 namespace值为对应接口的全路径 -->
+<mapper namespace="com.unmatched.dao.GoodsDao">
+    <select id="findImgByGoodsId" resultType="com.unmatched.pojo.Goods">
+        select * from e_goods where item_id=#{itemId}
+    </select>
+    
+    <select id="SearchByName" resultType="com.unmatched.pojo.Goods">
+        select * from e_goods where item_name like concat("%",#{itemName},"%")
+    </select>
+    
+</mapper>

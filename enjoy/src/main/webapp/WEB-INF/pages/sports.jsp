@@ -14,24 +14,32 @@
 <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
 <script src="builder/js/bootstrap.min.js"></script>
 <style>
+	/*
+	修改右外边距
+	 */
+#group {
+	margin-right: 70px;
+}
+/*
+修改搜索框上下外边距
+ */
 .search-title {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
-.first-title {
-	margin-top: 20px;
-}
-
+/*
+修改按钮颜色字体大小
+ */
 .small {
 	color: gray;
 	font-size: 18px;
 }
 </style>
 </head>
-<body>
+<body id="bodyId">
 	<!--页眉部分-->
-	<%@ include file="header.jsp" %>	
+	<%@ include file="header.jsp"%>
 	<div class="row">
 		<img src="builder/imgs/-1406356.jpg" class="img-responsive">
 	</div>
@@ -63,24 +71,29 @@
 	</div>
 	<div class="row" id="health">
 		<div class="col-md-12">
-			<form class="form-horizontal" role="form">
-				<div class="form-group">
-					<label for="firstname" class="col-sm-2 control-label">身高</label>
+			<form class="form-horizontal" role="form" action="" method="get">
+				<div id="uidId" class="form-group">
+					<label for="firstname" class="col-sm-2 control-label">身高(m)</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="firstname"
-							placeholder="请输入身高">
+							placeholder="请输入身高" name="height">
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="lastname" class="col-sm-2 control-label">体重</label>
+					<label for="lastname" class="col-sm-2 control-label">体重(kg)</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="lastname"
-							placeholder="请输入体重">
+							placeholder="请输入体重" name="weight">
 					</div>
 				</div>
-				<div class="form-group">
+				<div id="group" class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default">获取BMI</button>
+						<div class="container">
+							<button id="btn-bmi" type="button" class="btn btn-default"
+								title="您的BMI指数:" data-container="body" data-toggle="popover"
+								data-placement="bottom" data-content="正在加载中...">
+								获取BMI指数</button>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -97,14 +110,14 @@
 	<div class="row">
 		<div class="col-sm-6 col-md-3">
 			<div class="thumbnail">
-				<img src="builder/imgs/shoutao.jpg" alt="通用的占位符缩略图">
+				<img class="replace" src="builder/imgs/shoutao.jpg" alt="通用的占位符缩略图">
 				<div class="caption">
 					<h3>防滑手套</h3>
 					<p>安德玛 UA 女子运动健身器械训练防滑手套半指耐磨透气</p>
 					<p>
-						<a href="mitts.html" class="btn btn-primary" role="button">
-							查看详情 </a> <a href="mitts.html" class="btn btn-default" role="button">
-							加入购物车 </a>
+						<a href="goods_byid?item_id=4" class="btn btn-primary"
+							role="button"> 查看详情 </a> <a action="4" id="goodsId" class="btn btn-default"
+							role="button"> 加入购物车 </a>
 					</p>
 				</div>
 			</div>
@@ -116,9 +129,9 @@
 					<h3>Keep瑜伽垫</h3>
 					<p>Keep健身垫加厚加宽长双面专业TPE瑜伽垫防滑初学者运动瑜珈男女</p>
 					<p>
-						<a href="yoga.html" class="btn btn-primary" role="button">
-							查看详情 </a> <a href="yoga.html" class="btn btn-default" role="button">
-							加入购物车 </a>
+						<a href="goods_byid?item_id=5" class="btn btn-primary"
+							role="button"> 查看详情 </a> <a id="goodsId"  action="5" class="btn btn-default"
+							role="button"> 加入购物车 </a>
 					</p>
 				</div>
 			</div>
@@ -130,9 +143,9 @@
 					<h3>自用壶铃</h3>
 					<p>家用女性男士专业健身包胶竞技提壶铃哑铃健身房私教训练壶铃</p>
 					<p>
-						<a href="huling.html" class="btn btn-primary" role="button">
-							查看详情 </a> <a href="huling.html" class="btn btn-default" role="button">
-							加入购物车 </a>
+						<a href="goods_byid?item_id=6" class="btn btn-primary"
+							role="button"> 查看详情 </a> <a action="6"  id="goodsId" class="btn btn-default"
+							role="button"> 加入购物车 </a>
 					</p>
 				</div>
 			</div>
@@ -144,8 +157,8 @@
 					<h3>自用哑铃</h3>
 					<p>美国队长PU无味固定哑铃男女士家用私教健身房哑铃商用套装一对</p>
 					<p>
-						<a href="yaling(1).html" class="btn btn-primary" role="button">
-							查看详情 </a> <a href="yaling(1).html" class="btn btn-default"
+						<a href="goods_byid?item_id=7" class="btn btn-primary"
+							role="button"> 查看详情 </a> <a action="7"  id="goodsId" class="btn btn-default"
 							role="button"> 加入购物车 </a>
 					</p>
 				</div>
@@ -161,8 +174,8 @@
 					<h3>跑步机</h3>
 					<p>器材迷你垫子走路静音小型康复跑步机家用款减肥机小迷你家庭自动</p>
 					<p>
-						<a href="details" class="btn btn-primary" role="button">
-							查看详情 </a> <a href="paobuji(1).html" class="btn btn-default"
+						<a href="goods_byid?item_id=8" class="btn btn-primary"
+							role="button"> 查看详情 </a> <a action="8"  id="goodsId" class="btn btn-default"
 							role="button"> 加入购物车 </a>
 					</p>
 				</div>
@@ -175,8 +188,8 @@
 					<h3>硬拉腰带</h3>
 					<p>BD健美站可调节牛皮健身腰带深蹲硬拉健美举重护腰情侣款运动护具</p>
 					<p>
-						<a href="YAODAI(1).html" class="btn btn-primary" role="button">
-							查看详情 </a> <a href="YAODAI(1).html" class="btn btn-default"
+						<a href="goods_byid?item_id=9" class="btn btn-primary"
+							role="button"> 查看详情 </a> <a action="9"  id="goodsId" class="btn btn-default"
 							role="button"> 加入购物车 </a>
 					</p>
 				</div>
@@ -189,8 +202,8 @@
 					<h3>卧推护肘</h3>
 					<p>BD健美站护肘健身男卧推运动分段式压缩举重助力带护手肘弹力护具</p>
 					<p>
-						<a href="wotuiwuzhou.html" class="btn btn-primary" role="button">
-							查看详情 </a> <a href="wotuiwuzhou.html" class="btn btn-default"
+						<a href="goods_byid?item_id=10" class="btn btn-primary"
+							role="button"> 查看详情 </a> <a action="10"  id="goodsId" class="btn btn-default"
 							role="button"> 加入购物车 </a>
 					</p>
 				</div>
@@ -212,9 +225,9 @@
 						<h3>乳清蛋白</h3>
 						<p>ON欧普特蒙蛋白粉 WHEY运动增肌健身乳清蛋白质粉美国进口 5磅</p>
 						<p>
-							<a href="ruqingdanbai%20.html" class="btn btn-primary"
-								role="button"> 查看详情 </a> <a href="ruqingdanbai%20.html"
-								class="btn btn-default" role="button"> 加入购物车 </a>
+							<a href="goods_byid?item_id=11" class="btn btn-primary"
+								role="button"> 查看详情 </a> <a action="11"  id="goodsId" class="btn btn-default"
+								role="button"> 加入购物车 </a>
 						</p>
 					</div>
 				</div>
@@ -226,8 +239,8 @@
 						<h3>即食鸡胸</h3>
 						<p>优追麦克斯真空无油高蛋白鸡胸肉健身即食运动零食代餐低脂轻食品</p>
 						<p>
-							<a href="jishijixiong.html" class="btn btn-primary" role="button">
-								查看详情 </a> <a href="jishijixiong.html" class="btn btn-default"
+							<a href="goods_byid?item_id=13" class="btn btn-primary"
+								role="button"> 查看详情 </a> <a action="13"  id="goodsId" class="btn btn-default"
 								role="button"> 加入购物车 </a>
 						</p>
 					</div>
@@ -240,9 +253,9 @@
 						<h3>支链氨基酸</h3>
 						<p>豹哥补剂 ON欧普特蒙全普乳清支链谷氨基酸 健身增肌能量补充饮料</p>
 						<p>
-							<a href="zhiliananjisuan.html" class="btn btn-primary"
-								role="button"> 查看详情 </a> <a href="zhiliananjisuan.html"
-								class="btn btn-default" role="button"> 加入购物车 </a>
+							<a href="goods_byid?item_id=14" class="btn btn-primary"
+								role="button"> 查看详情 </a> <a action="14"  id="goodsId" class="btn btn-default"
+								role="button"> 加入购物车 </a>
 						</p>
 					</div>
 				</div>
@@ -252,7 +265,77 @@
 	<!--页脚部分-->
 	<!-- 页脚 -->
 	<div class="container-fluid">
-		<%@ include file="footer.jsp" %>	
+		<%@ include file="footer.jsp"%>
 	</div>
+	<script>
+	
+	//绑定点击事件
+	$(function() {
+	    //获取bmi按钮事件绑定
+		$(".form-group")
+				.on("click", "#btn-bmi", function () {
+					doGetBmi();
+				})
+		//商品详情跳转事件绑定
+		$("#bodyId").on("click", "#goodsId", function() {
+			//console.log(this);
+			doAddOrder0($(this).attr("action"));
+		})
+	});
+	
+	//同步获取用户uid
+	$(function() {
+
+		$.ajax({
+			type : "get",
+			url : "user/doAuthenLogin",
+			async : false,
+			success : function(result) {
+				console.log(result);
+				$("#uidId").data("uid", result.data.uid);
+			}
+		});
+	});
+	
+	//加入购物车，state状态为0
+	function doAddOrder0(item_id) {
+		//console.log("item_id", item_id);
+		var uid = $("#uidId").data("uid");
+		$.ajax({
+			type : "get",
+			url : "order/doAddOrder0",
+			async : true,
+			data : {
+				"item_id" : item_id,
+				"uid" : uid
+			},
+			success : function(result) {
+				//console.log("result", result);
+				if (result.state == 1) {
+					alert(result.message);
+				} else {
+					alert(result.message);
+				}
+			}
+		});
+	}
+	
+	function doGetBmi() {
+		//定义url
+		var url="get_bmi";
+		//定义参数
+		var params={"height":$("#firstname").val(),
+		"weight":$("#lastname").val()};
+		//发送异步请求获取bmi
+		$.get(url,params,function (result) {
+			$('[data-toggle="popover"]').popover()
+			if (result.data==null){
+				alert(result.message)
+			}
+			//将获取的bmi绑定至弹出框
+			$("#btn-bmi").attr("data-content",result.data.bmi+result.data.statu);
+		})
+	}
+</script>
 </body>
 </html>
